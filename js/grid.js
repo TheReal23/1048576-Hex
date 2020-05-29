@@ -13,10 +13,10 @@ function Grid(grid) {
 
 // Build a grid of the specified size
 Grid.prototype.build = function () {
-  for (var x = 0; x < this.size; x++) {
+  for (var x = 0; x < 2 * this.size - 1; x++) {
     var row = this.cells[x] = [];
 
-    for (var y = 0; y < this.size; y++) {
+    for (var y = 0; y < 2 * this.size - 1; y++) {
       row.push(null);
     }
   }
