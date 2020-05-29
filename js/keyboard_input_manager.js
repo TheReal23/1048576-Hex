@@ -24,18 +24,14 @@ KeyboardInputManager.prototype.listen = function () {
   var self = this;
 
   var map = {
-    38: 0, // Up
-    39: 1, // Right
-    40: 2, // Down
+    39: 2, // Right
     37: 3, // Left
-    75: 0, // vim keybindings
-    76: 1,
-    74: 2,
-    72: 3,
     87: 0, // W
-    68: 1, // D
-    83: 2, // S
-    65: 3  // A
+    69: 1, // E
+    65: 2, // A
+    68: 3, // D
+    90: 4, // Z
+    88: 5  // X
   };
 
   document.addEventListener("keydown", function (event) {
@@ -61,8 +57,8 @@ KeyboardInputManager.prototype.listen = function () {
   var touchStartClientX, touchStartClientY;
   var gameContainer = document.getElementsByClassName("game-container")[0];
 
-  gameContainer.addEventListener("touchstart", function (event) {
-    if (event.touches.length > 1) return;
+  gameContainer.addEventListener(this.eventTouchstart, function (event) {
+    if (( !window.navigator.msPointerEnabled && event.touches.length > 1) || event.targetTouches > 1) return;
 
     touchStartClientX = event.touches[0].clientX;
     touchStartClientY = event.touches[0].clientY;
