@@ -117,7 +117,7 @@ hr {
   margin-bottom: 30px; }
 
 .container {
-  width: 1226px;
+  width: 1348px;
   margin: 0 auto; }
 
 @-webkit-keyframes fade-in {
@@ -151,7 +151,7 @@ hr {
   -moz-user-select: none;
   background: #bbada0;
   border-radius: 6px;
-  width: 1226px;
+  width: 1348px;
   height: 1226px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -232,9 +232,10 @@ hr {
   z-index: 2; }
 
 .tile {
-  width: 106.25px;
-  height: 106.25px;
-  line-height: 116.25px; }
+  border-radius: 50%;
+  width: 124px;
+  height: 124px;
+  line-height: 124px; }
   .tile.tile-position-1-1 {
     position: absolute;
     left: 280px;
