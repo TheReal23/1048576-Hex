@@ -189,10 +189,12 @@ GameManager.prototype.move = function (direction) {
 GameManager.prototype.getVector = function (direction) {
   // Vectors representing tile movement
   var map = {
-    0: { x: 0,  y: -1 }, // up
-    1: { x: 1,  y: 0 },  // right
-    2: { x: 0,  y: 1 },  // down
-    3: { x: -1, y: 0 }   // left
+    0: { x: -1, y: -1 }, // up left
+    1: { x: 0,  y: -1 }, // up right
+    2: { x: -1, y: 0 },  // left
+    3: { x: 1,  y: 0 },  // right
+    4: { x: 0,  y: 1 },  // down left
+    5: { x: 1,  y: 1 }   // down right
   };
 
   return map[direction];
@@ -202,7 +204,7 @@ GameManager.prototype.getVector = function (direction) {
 GameManager.prototype.buildTraversals = function (vector) {
   var traversals = { x: [], y: [] };
 
-  for (var pos = 0; pos < this.size; pos++) {
+  for (var pos = 0; pos < 2 * this.size - 1; pos++) {
     traversals.x.push(pos);
     traversals.y.push(pos);
   }
@@ -240,8 +242,8 @@ GameManager.prototype.tileMatchesAvailable = function () {
 
   var tile;
 
-  for (var x = 0; x < this.size; x++) {
-    for (var y = 0; y < this.size; y++) {
+  for (var x = 0; x < 2 * this.size - 1; x++) {
+    for (var y = 0; y < 2 * this.size - 1; y++) {
       tile = this.grid.cellContent({ x: x, y: y });
 
       if (tile) {
